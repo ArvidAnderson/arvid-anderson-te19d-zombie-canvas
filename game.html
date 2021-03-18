@@ -5,23 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png" type="image/gif" sizes="16x16">
+    <title>EASY</title>
 </head>
 
-<body>
+<body class="gamezone">
+    <div>
 
+    </div>
 </body>
 
 </html>
 <script src="https://koda.nu/simple.js">
+    const gamemode = localStorage.getItem("gamemode");
+
+    if (gamemode === 'easy') {
+        var amount = 10
+        var speed_set = random(1, 5)
+    }
+
+    if (gamemode === 'medium') {
+        var amount = 15
+        var speed_set = random(4, 10)
+    }
+    if (gamemode === 'hard') {
+        var amount = 21
+        var speed_set = random(10, 15)
+    }
+
+    var time = 0
+    setInterval(function () { time += 1; }, 1000);
 
     var zombies = [];
+    var fireball = [];
+
     var i = 0;
     while (i < 100) {
         zombies.push({
             x: random(totalWidth),
             y: random(totalHeight),
-            speed: random(1,5)
+            speed: speed_set
         });
         i += 1;
     }
@@ -31,11 +55,15 @@
 
         var i = 0;
 
-        while (i < 10) {
+        while (i < amount) {
 
             var zombie = zombies[i];
 
             picture(zombie.x, zombie.y, "img/char.png");
+
+            if (keyboard.space) {
+                document.body.style.backgroundImage = "url('/img/startscreen.jpg')";
+            }
 
             if (zombie.x < mouse.x) {
                 zombie.x += zombie.speed;
@@ -51,10 +79,10 @@
 
             if (distance(mouse, zombie) < 6) {
                 stopUpdate();
-                alert("Game over")
+                localStorage.setItem('time', time)
+                location.replace('gameover.html')
             }
             i += 1
         }
     }
-
 </script>
