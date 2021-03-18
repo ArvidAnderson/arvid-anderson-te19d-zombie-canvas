@@ -1,0 +1,17 @@
+body {
+    background-image: url("img/startscreen.jpg");
+    background-size: cover;
+}
+.startscreen {
+    background-color: none;
+}
+.heading h1 {
+    color: white;
+    font-size: 90px;
+}
+.buttons button {
+    padding-right: 70px;
+    padding-left: 70px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
