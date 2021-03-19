@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="icon.png" type="image/gif" sizes="16x16">
-    <title>EASY</title>
+    <title>[gamemode]</title>
 </head>
 
 <body class="gamezone">
@@ -19,6 +19,8 @@
 </html>
 <script src="https://koda.nu/simple.js">
     const gamemode = localStorage.getItem("gamemode");
+    
+    document.title = gamemode[0].toUpperCase() + gamemode.slice(1);
 
     if (gamemode === 'easy') {
         var amount = 10

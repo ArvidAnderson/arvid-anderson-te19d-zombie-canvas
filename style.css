@@ -17,6 +17,14 @@
     color: white;
     font-size: 45px;
 }
+.gameoverheading h1 {
+    color: white;
+    font-size: 160px;
+}
+.gameoverheading h2 {
+    color: white;
+    font-size: 30px;
+}
 .buttons button {
     padding-right: 70px;
     padding-left: 70px;
